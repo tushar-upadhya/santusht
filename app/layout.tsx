@@ -1,5 +1,6 @@
 import Header from "@/components/header/Header";
 import { ThemeProvider } from "@/components/theme/theme-trovider/ThemeProvider";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
                     {/* <HeaderOne /> */}
                     <Header />
                     {children}
+                    <Toaster />
                 </ThemeProvider>
             </body>
         </html>

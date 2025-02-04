@@ -1,9 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
 import React, { useEffect, useState } from "react";
 
 const HeaderOne: React.FC = () => {
+    const { toast } = useToast();
     const [currentTime, setCurrentTime] = useState("");
 
     useEffect(() => {
@@ -26,6 +29,15 @@ const HeaderOne: React.FC = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const handleCopy = () => {
+        const phoneNumber = "011-26588500";
+        navigator.clipboard.writeText(phoneNumber);
+        toast({
+            title: "Number Copied!",
+            description: `${phoneNumber} has been copied to your clipboard.`,
+        });
+    };
+
     return (
         <header className="container mx-auto flex flex-wrap justify-between items-center px-4 md:px-6 dark:bg-transparent py-2">
             {/* Left side: Date, Time, Day */}
@@ -33,12 +45,13 @@ const HeaderOne: React.FC = () => {
                 {currentTime}
             </div>
 
-            {/* Right side: Call Button */}
+            {/* Right side: Call Button with Copy Functionality */}
             <Button
-                className="px-4 mt-2 sm:px-4 py-2 text-primary font-medium rounded-md text-xs sm:text-sm md:text-base border  dark:border-orange-500 dark:text-gray-300"
+                onClick={handleCopy}
+                className="px-4 mt-2 sm:px-4 py-2 text-primary font-medium rounded-md text-xs sm:text-sm md:text-base border dark:border-orange-500 dark:text-gray-300"
                 variant="outline"
             >
-                Call: 011-26588500
+                Call us now: 011-26588500
             </Button>
         </header>
     );
