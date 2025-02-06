@@ -1,7 +1,8 @@
-import logo from "@/public/vercel.svg";
+import logo from "@/public/logo-full.svg";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 const Logo: React.FC = () => {
     return (
         <Link href="/">

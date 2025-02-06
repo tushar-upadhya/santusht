@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -39,7 +37,7 @@ const HeaderOne: React.FC = () => {
     };
 
     return (
-        <header className="container mx-auto flex flex-wrap justify-between items-center px-4 md:px-6 dark:bg-transparent py-2">
+        <header className="flex flex-wrap justify-between items-center px-4 md:px-6 dark:bg-transparent py-2">
             {/* Left side: Date, Time, Day */}
             <div className="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300">
                 {currentTime}

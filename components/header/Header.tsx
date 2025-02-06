@@ -34,8 +34,10 @@ const Header: React.FC = () => {
                 pathname === "/" ? "bg-[#fef9f5]" : ""
             }`}
         >
-            <div className="container mx-auto">
-                <HeaderOne />
+            <div className="container mx-auto -mb-4">
+                <div className="-mt-4">
+                    <HeaderOne />
+                </div>
                 <div className="flex items-center justify-between">
                     <Logo />
                     <div className="flex items-center gap-x-3">

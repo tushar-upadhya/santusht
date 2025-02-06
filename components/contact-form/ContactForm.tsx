@@ -6,7 +6,7 @@ import { Textarea } from "../ui/textarea";
 
 const ContactForm: React.FC = () => {
     return (
-        <form className="flex flex-col gap-y-4 mx-auto container">
+        <form className="flex flex-col gap-y-4 ">
             {/* input */}
 
             <div className="relative flex items-center">

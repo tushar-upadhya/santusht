@@ -1,13 +1,8 @@
 "use client";
+
 import ContactForm from "@/components/contact-form/ContactForm";
 import { HomeIcon, MailIcon } from "lucide-react";
 import React from "react";
-
-import { z } from "zod";
-
-const formSchema = z.object({
-    username: z.string().min(2).max(50),
-});
 
 const ContactPage: React.FC = () => {
     return (

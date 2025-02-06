@@ -1,23 +1,15 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
+import About from "@/components/about/About";
+import AssistanceBanner from "@/components/assistance-banner/AssistanceBanner";
+import Hero from "@/components/hero/Hero";
 import React from "react";
 
 const HomePage: React.FC = () => {
     return (
-        <Carousel>
-            <CarouselContent>
-                <CarouselItem>...</CarouselItem>
-                <CarouselItem>...</CarouselItem>
-                <CarouselItem>...</CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel>
+        <div className="container mx-auto">
+            <Hero />
+            <AssistanceBanner />
+            <About />
+        </div>
     );
 };
 
