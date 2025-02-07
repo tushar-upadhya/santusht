@@ -22,14 +22,18 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="icon" href="/favicon.ico" />
             </head>
 
             <body className={roboto.className}>
-                <ThemeProvider attribute="class" defaultTheme="light">
-                    {/* <HeaderOne /> */}
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
                     <Header />
                     {children}
                     <Toaster />

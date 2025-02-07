@@ -5,6 +5,7 @@ import {
     CarouselContent,
     CarouselItem,
 } from "@/components/ui/carousel";
+import clsx from "clsx";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -38,27 +39,38 @@ const Hero: React.FC = () => {
     }, []);
 
     return (
-        <div className="w-full mt-auto relative overflow-hidden">
-            <Carousel className="w-full">
-                <CarouselContent
-                    className="flex transition-transform duration-700 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                    {images.map((image) => (
-                        <CarouselItem key={image.id} className="w-full">
-                            <Image
-                                src={image.src}
-                                alt={image.alt}
-                                width={1200}
-                                height={600}
-                                className="w-full h-[300px] md:h-[500px] object-cover"
-                                priority
-                            />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
-        </div>
+        <section className="py-1">
+            <div className="container mx-auto text-center px-4">
+                <Carousel className="w-full">
+                    <CarouselContent
+                        className={clsx(
+                            "flex transition-transform duration-700 ease-in-out",
+                            {
+                                "translate-x-0": currentIndex === 0,
+                                "-translate-x-full": currentIndex === 1,
+                                "-translate-x-[200%]": currentIndex === 2,
+                            }
+                        )}
+                    >
+                        {images.map((image) => (
+                            <CarouselItem
+                                key={image.id}
+                                className="w-full flex-shrink-0"
+                            >
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    width={1200}
+                                    height={600}
+                                    className="w-full h-[300px] md:h-[500px] object-cover"
+                                    priority
+                                />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
+            </div>
+        </section>
     );
 };
 

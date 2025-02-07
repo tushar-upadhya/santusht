@@ -39,14 +39,14 @@ const HeaderOne: React.FC = () => {
     return (
         <header className="flex flex-wrap justify-between items-center px-4 md:px-6 dark:bg-transparent py-2">
             {/* Left side: Date, Time, Day */}
-            <div className="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300">
+            <div className="text-[min(4vw,1rem)] leading-relaxed  text-gray-700 dark:text-gray-300">
                 {currentTime}
             </div>
 
             {/* Right side: Call Button with Copy Functionality */}
             <Button
                 onClick={handleCopy}
-                className="px-4 mt-2 sm:px-4 py-2 text-primary font-medium rounded-md text-xs sm:text-sm md:text-base border dark:border-orange-500 dark:text-gray-300"
+                className="px-4 mt-2 sm:px-4 py-2 text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed border dark:border-orange-500 dark:text-gray-300"
                 variant="outline"
             >
                 Call us now: 011-26588500

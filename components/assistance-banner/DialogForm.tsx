@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
@@ -13,8 +15,8 @@ interface DialogFormProps {
     description: string;
     formComponent: React.ReactNode;
     buttonLabel: string;
-    logo: React.ReactNode;
-    location: string;
+    logo?: React.ReactNode;
+    location?: string;
 }
 
 const DialogForm: React.FC<DialogFormProps> = ({
@@ -27,10 +29,10 @@ const DialogForm: React.FC<DialogFormProps> = ({
 }) => {
     return (
         <Dialog>
-            <DialogTrigger>
+            <DialogTrigger asChild>
                 <Button
-                    variant={"outline"}
-                    className="border dark:border-orange-500 dark:text-gray-300 font-medium w-full px-4"
+                    variant="outline"
+                    className="border dark:border-orange-500 dark:text-gray-300 font-medium w-full sm:w-fit px-4"
                 >
                     {buttonLabel}
                 </Button>
@@ -43,10 +45,10 @@ const DialogForm: React.FC<DialogFormProps> = ({
                     </DialogTitle>
                     <DialogDescription>
                         <p className="font-semibold">{description}</p>
-                        <p className="mt-2 text-sm">{location}</p>
+                        {location && <p className="mt-2 text-sm">{location}</p>}
                     </DialogDescription>
                 </DialogHeader>
-                {formComponent}
+                <div className="mt-4">{formComponent}</div>
             </DialogContent>
         </Dialog>
     );
