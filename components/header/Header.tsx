@@ -39,7 +39,10 @@ const Header: React.FC = () => {
                     <HeaderOne />
                 </div>
                 <div className="flex items-center justify-between">
-                    <Logo />
+                    <Logo
+                        title="SANTUSHT"
+                        description="All India Institute Of Medical Sciences, Ansari Nagar New Delhi"
+                    />
                     <div className="flex items-center gap-x-3">
                         {/* Navigation */}
                         <Nav

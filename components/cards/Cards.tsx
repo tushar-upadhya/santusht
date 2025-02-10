@@ -1,6 +1,7 @@
 import { ClipboardCheck, Clock, HeartPulse, MailCheck } from "lucide-react";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "../ui/separator";
+
 const features = [
     {
         icon: <HeartPulse className="w-8 h-8 text-primary" />,

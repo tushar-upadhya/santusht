@@ -1,7 +1,7 @@
-import FeedbackForm from "../forms/FeedbackForm";
-import RaiseGrievanceForm from "../forms/RaiseGrievanceForm";
+import DialogForm from "../forms/dialog-form/DialogForm";
+import FeedbackForm from "../forms/feedback-form/FeedbackForm";
+import RaiseGrievanceForm from "../forms/raise-grievance-form/RaiseGrievanceForm";
 import Logo from "../header/logo/Logo";
-import DialogForm from "./DialogForm";
 
 const AssistanceBanner: React.FC = () => {
     return (

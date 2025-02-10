@@ -50,18 +50,17 @@ const Services: React.FC = () => {
 
     return (
         <section className="py-12">
-            <div className="container mx-auto text-center px-4 capitalize">
+            <div className="container mx-auto text-center capitalize">
                 <h2 className="text-[min(6vw,1.5rem)] leading-relaxed font-bold text-center mb-8 text-foreground dark:text-gray-100">
                     Our Achievements
                 </h2>
                 <Separator className="bg-gray-300 dark:bg-gray-700 mx-auto -mt-4 mb-4 w-24 h-[2px]" />
 
-                {/* Responsive Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
                     {statCards.map((stat, index) => (
                         <Card
                             key={index}
-                            className="bg-card p-4 text-center border-none shadow-none"
+                            className="bg-card text-center border-none shadow-none"
                         >
                             <CardHeader className="flex flex-col items-center">
                                 {stat.icon}

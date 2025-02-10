@@ -8,11 +8,11 @@ interface NavProps {
     underlineStyles?: string;
 }
 
-const Nav: React.FC<NavProps> = ({
+const Nav = ({
     containerStyles = "",
     linkStyles = "",
     underlineStyles = "",
-}) => {
+}: NavProps) => {
     const path = usePathname();
 
     return (

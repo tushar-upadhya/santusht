@@ -49,7 +49,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
                         name="fullName"
                         render={({ field }) => (
                             <FormItem>
-                                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 dark:border-dark-600 px-4 shadow-drop-1">
+                                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 dark:border-primary/50 px-4 shadow-drop-1">
                                     <FormLabel className="text-light-100 dark:text-gray-100">
                                         Full Name
                                     </FormLabel>
@@ -72,7 +72,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 dark:border-dark-600 px-4 shadow-drop-1">
+                            <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 dark:border-primary/50 px-4 shadow-drop-1">
                                 <FormLabel className="text-light-100 dark:text-gray-100 pt-2 text-[min(4vw,1rem)] leading-relaxed  font-normal w-full">
                                     Email
                                 </FormLabel>

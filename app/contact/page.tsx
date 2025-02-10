@@ -1,6 +1,6 @@
 "use client";
 
-import ContactForm from "@/components/contact-form/ContactForm";
+import ContactForm from "@/components/forms/contact-form/ContactForm";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { HomeIcon, MailIcon } from "lucide-react";
@@ -41,17 +41,17 @@ const ContactPage: React.FC = () => {
                         <div className="flex items-center gap-x-4 sm:gap-x-8 justify-center xl:justify-start">
                             <div className="text-sm sm:text-base">
                                 <Button
-                                    variant={"outline"}
+                                    variant={"link"}
                                     onClick={() => handleCopy("011-26588500")}
-                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed border dark:border-orange-500 dark:text-gray-300"
+                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed  dark:border-orange-500 dark:text-gray-300"
                                 >
                                     011-26588500
                                 </Button>
                                 {" | "}
                                 <Button
-                                    variant={"outline"}
+                                    variant={"link"}
                                     onClick={() => handleCopy("011-26588900")}
-                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed border dark:border-orange-500 dark:text-gray-300"
+                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300"
                                 >
                                     011-26588900
                                 </Button>
@@ -75,7 +75,7 @@ const ContactPage: React.FC = () => {
                             />
                             <div className="text-[min(4vw,1rem)] leading-relaxed -ml-4">
                                 <Button
-                                    variant={"ghost"}
+                                    variant={"link"}
                                     onClick={() =>
                                         handleMail("patientcare@aiims.edu")
                                     }
@@ -83,8 +83,9 @@ const ContactPage: React.FC = () => {
                                 >
                                     patientcare@aiims.edu
                                 </Button>
+                                {" | "}
                                 <Button
-                                    variant={"ghost"}
+                                    variant={"link"}
                                     onClick={() => handleMail("care@aiims.edu")}
                                     className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300"
                                 >
@@ -95,7 +96,7 @@ const ContactPage: React.FC = () => {
                         {/* address */}
                         <div className="flex items-center gap-x-4 sm:gap-x-8">
                             <HomeIcon size={18} className="text-primary" />
-                            <div className="text-[min(4vw,.6rem)] leading-relaxed">
+                            <div className="text-[min(4vw,.9rem)] leading-relaxed">
                                 All India Institute Of Medical Sciences, Delhi
                                 Ansari Nagar, Delhi 110029
                             </div>

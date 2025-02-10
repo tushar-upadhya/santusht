@@ -19,14 +19,14 @@ interface DialogFormProps {
     location?: string;
 }
 
-const DialogForm: React.FC<DialogFormProps> = ({
+const DialogForm = ({
     title,
     description,
     formComponent,
     buttonLabel,
     logo,
     location,
-}) => {
+}: DialogFormProps) => {
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -39,13 +39,15 @@ const DialogForm: React.FC<DialogFormProps> = ({
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle className="flex items-center space-x-2">
-                        {logo && <div className="w-8 h-8">{logo}</div>}
+                    <DialogTitle className="flex items-center">
+                        {logo && <div className="w-fit h-fit">{logo}</div>}
                         <span>{title}</span>
                     </DialogTitle>
-                    <DialogDescription>
-                        <p className="font-semibold">{description}</p>
-                        {location && <p className="mt-2 text-sm">{location}</p>}
+                    <DialogDescription className="text-sm text-muted-foreground">
+                        <span className="font-semibold">{description}</span>
+                        {location && (
+                            <span className="mt-2 block">{location}</span>
+                        )}
                     </DialogDescription>
                 </DialogHeader>
                 <div className="mt-4">{formComponent}</div>

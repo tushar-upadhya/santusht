@@ -53,7 +53,7 @@ const Testimonials = () => {
                     <Separator className="bg-gray-300 dark:bg-gray-700 mx-auto mt-2 w-24 h-[2px]" />
                 </h2>
 
-                <p className="text-gray-700 dark:text-gray-300 mt-4 max-w-2xl text-[min(4.5vw,1rem)] leading-relaxed mx-auto capitalize">
+                <p className="text-gray-700 dark:text-gray-300 mt-4 text-[min(4.5vw,1rem)] text-left leading-6 mb-12 capitalize">
                     Our faithful testimonials reflect the heart of our
                     commitment satisfied patients sharing their positive
                     experiences. At SANTUSHT, real stories testify to our
