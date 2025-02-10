@@ -35,8 +35,8 @@ const ContactPage: React.FC = () => {
                             anytime for immediate support or information. Our
                             dedicated team is ready to address your concerns,
                             providing the help you need promptly. Your
-                            well-being is our top priority, and we're here for
-                            you.
+                            well-being is our top priority, and we&apos;re here
+                            for you.
                         </h1>
                         <div className="flex items-center gap-x-4 sm:gap-x-8 justify-center xl:justify-start">
                             <div className="text-sm sm:text-base">

@@ -48,7 +48,7 @@ const RaiseGrievanceForm = () => {
         },
     });
 
-    const onSubmit = (data: any): void => {
+    const onSubmit = (data: unknown): void => {
         console.log(data);
     };
 

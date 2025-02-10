@@ -60,7 +60,7 @@ const Services: React.FC = () => {
                     {statCards.map((stat, index) => (
                         <Card
                             key={index}
-                            className="bg-card text-center border-none shadow-none"
+                            className=" text-center border-none shadow-none"
                         >
                             <CardHeader className="flex flex-col items-center">
                                 {stat.icon}

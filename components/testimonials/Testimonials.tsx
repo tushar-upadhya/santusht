@@ -59,12 +59,12 @@ const Testimonials = () => {
                     experiences. At SANTUSHT, real stories testify to our
                     compassionate care, effective solutions, and the dedication
                     of our staff. Trust in our services is built on the genuine
-                    voices of those we've served.Our faithful testimonials
+                    voices of those we&apos;ve served.Our faithful testimonials
                     reflect the heart of our commitment satisfied patients
                     sharing their positive experiences. At SANTUSHT, real
                     stories testify to our compassionate care, effective
                     solutions, and the dedication of our staff. Trust in our
-                    services is built on the genuine voices of those we've
+                    services is built on the genuine voices of those we&apos;ve
                     served.
                 </p>
                 <Carousel

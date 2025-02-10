@@ -1,6 +1,7 @@
 import About from "@/components/about/About";
 import AssistanceBanner from "@/components/assistance-banner/AssistanceBanner";
 import Cards from "@/components/cards/Cards";
+import Departments from "@/components/departments/Departments";
 import Faq from "@/components/faq/Faq";
 import Gallery from "@/components/gallery/Gallery";
 import Hero from "@/components/hero/Hero";
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
             <Testimonials />
             <Cards />
             <Services />
+            <Departments />
             <Gallery />
             <Faq />
         </div>
