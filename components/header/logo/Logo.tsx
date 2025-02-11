@@ -6,11 +6,12 @@ import React from "react";
 interface LogoProps {
     title?: string;
     description?: string;
+    className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ title, description }) => {
+const Logo: React.FC<LogoProps> = ({ title, description, className }) => {
     return (
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className={`flex items-center gap-2 ${className}`}>
             <Image
                 src={logo}
                 priority

@@ -161,16 +161,14 @@ const FeedbackForm = () => {
                     />
 
                     {/* Get OTP Button */}
-                    <Button className="self-end">Get OTP</Button>
+                    <Button className="self-end" variant={"destructive"}>
+                        Get OTP
+                    </Button>
                 </div>
 
                 {/* Submit Button */}
                 <div className="justify-center max-w-full">
-                    <Button
-                        type="submit"
-                        variant="secondary"
-                        className="w-full"
-                    >
+                    <Button type="submit" variant="default" className="w-full">
                         Submit
                     </Button>
                 </div>

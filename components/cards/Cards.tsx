@@ -1,6 +1,5 @@
 import { ClipboardCheck, Clock, HeartPulse, MailCheck } from "lucide-react";
 import { CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Separator } from "../ui/separator";
 
 const features = [
     {
@@ -33,10 +32,10 @@ const Cards: React.FC = () => {
     return (
         <div className="py-12">
             <div className="container mx-auto text-center px-4 capitalize">
-                <h2 className="text-[min(6vw,1.5rem)]  font-bold text-center mb-8 text-foreground dark:text-gray-100">
+                {/* <h2 className="text-[min(6vw,1.5rem)]  font-bold text-center mb-8 text-foreground dark:text-gray-100">
                     Our Key Features
                     <Separator className="bg-gray-300 dark:bg-gray-700 mx-auto mt-2 w-24 h-[2px]" />
-                </h2>
+                </h2> */}
                 {/* Responsive Card Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => (

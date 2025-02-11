@@ -3,7 +3,7 @@
 import ContactForm from "@/components/forms/contact-form/ContactForm";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { HomeIcon, MailIcon } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const ContactPage: React.FC = () => {
@@ -20,12 +20,24 @@ const ContactPage: React.FC = () => {
     };
 
     return (
-        <section className="px-4 sm:px-6 lg:px-8">
+        <section className="py-12">
             <div className="container mx-auto">
-                {/* text & illustration */}
-                <div className="grid grid-cols-1 xl:grid-cols-2 pt-8 sm:pt-12 xl:h-[480px] mb-6 xl:mb-24">
-                    {/* text */}
+                {/* Grid Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:h-[480px] mb-6 xl:mb-24">
+                    {/* Left side content (Image, Text, Contact Info, Address) */}
                     <div className="flex flex-col justify-center text-center xl:text-left">
+                        {/* Image */}
+                        <div className="w-full h-[200px] sm:h-[300px] bg-cover bg-center mb-6">
+                            <Image
+                                src="/assets/auth.png"
+                                alt="Auth Image"
+                                width={342}
+                                height={342}
+                                layout="intrinsic"
+                                className="transition-all hover:rotate-2 hover:scale-105"
+                            />
+                        </div>
+                        {/* Text */}
                         <div className="flex justify-center xl:justify-start items-center mb-4 text-lg gap-x-4 text-primary">
                             Say Hello 👋
                         </div>
@@ -38,12 +50,13 @@ const ContactPage: React.FC = () => {
                             well-being is our top priority, and we&apos;re here
                             for you.
                         </h1>
+                        {/* Contact Info (Phone Numbers) */}
                         <div className="flex items-center gap-x-4 sm:gap-x-8 justify-center xl:justify-start">
                             <div className="text-sm sm:text-base">
                                 <Button
                                     variant={"link"}
                                     onClick={() => handleCopy("011-26588500")}
-                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed  dark:border-orange-500 dark:text-gray-300"
+                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300"
                                 >
                                     011-26588500
                                 </Button>
@@ -57,54 +70,22 @@ const ContactPage: React.FC = () => {
                                 </Button>
                             </div>
                         </div>
-                    </div>
-                    {/* illustration */}
-                    <div className="hidden xl:flex w-full bg-top bg-no-repeat bg-contain bg-contact_illustration_light dark:bg-contact_illustration_dark" />
-                </div>
-
-                {/* info text & form */}
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 sm:gap-16 xl:gap-24 mb-16 xl:mb-32">
-                    {/* info text */}
-                    <div className="flex flex-col text-[min(4vw,1rem)] leading-relaxed gap-y-6 sm:gap-y-10">
-                        {/* mail */}
-                        <div className="flex flex-col sm:flex-row items-center gap-y-4 sm:gap-x-8 sm:gap-y-0">
-                            {/* Mail Icon will be hidden on small screens */}
-                            <MailIcon
-                                size={18}
-                                className="text-primary hidden sm:block"
-                            />
-                            <div className="text-[min(4vw,1rem)] leading-relaxed -ml-4">
-                                <Button
-                                    variant={"link"}
-                                    onClick={() =>
-                                        handleMail("patientcare@aiims.edu")
-                                    }
-                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300 mb-2 sm:mb-0"
-                                >
-                                    patientcare@aiims.edu
-                                </Button>
-                                {" | "}
-                                <Button
-                                    variant={"link"}
-                                    onClick={() => handleMail("care@aiims.edu")}
-                                    className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300"
-                                >
-                                    care@aiims.edu
-                                </Button>
-                            </div>
-                        </div>
-                        {/* address */}
-                        <div className="flex items-center gap-x-4 sm:gap-x-8">
-                            <HomeIcon size={18} className="text-primary" />
-                            <div className="text-[min(4vw,.9rem)] leading-relaxed">
-                                All India Institute Of Medical Sciences, Delhi
-                                Ansari Nagar, Delhi 110029
-                            </div>
+                        {/* Email Info */}
+                        <div className="flex items-center gap-x-4 sm:gap-x-8 justify-center xl:justify-start mt-4">
+                            <Button
+                                variant={"link"}
+                                onClick={() =>
+                                    handleMail("contact@santusht.com")
+                                }
+                                className="text-primary font-medium rounded-md text-[min(4vw,1rem)] leading-relaxed dark:border-orange-500 dark:text-gray-300"
+                            >
+                                contact@santusht.com
+                            </Button>
                         </div>
                     </div>
 
-                    {/* contact form */}
-                    <div>
+                    {/* Right side content (Contact Form) */}
+                    <div className="xl:ml-12 mt-8 xl:mt-0">
                         <ContactForm />
                     </div>
                 </div>

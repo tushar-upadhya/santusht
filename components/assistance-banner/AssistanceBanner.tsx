@@ -16,7 +16,7 @@ const AssistanceBanner: React.FC = () => {
                     clock to provide the assistance you need in critical
                     situations. Your well-being is our top priority.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center dark:border-orange-500 dark:text-gray-300 text-primary items-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center  dark:text-gray-300   text-primary items-center gap-4">
                     {/* Raise Grievance  */}
                     <DialogForm
                         title="SANTUSHT"
