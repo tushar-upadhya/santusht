@@ -1,5 +1,6 @@
 "use client";
 
+import { adminLinks, links } from "@/lib/links/NavLinks";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "../theme/theme-toggler/ThemeToggler";
@@ -18,11 +19,12 @@ const Header: React.FC = () => {
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const isAdminRoute = pathname.startsWith("/admin");
 
     return (
         <header
@@ -44,8 +46,9 @@ const Header: React.FC = () => {
                         description="All India Institute Of Medical Sciences, Ansari Nagar New Delhi"
                     />
                     <div className="flex items-center gap-x-3">
-                        {/* Navigation */}
+                        {/* Conditional Navigation */}
                         <Nav
+                            links={isAdminRoute ? adminLinks : links}
                             containerStyles="hidden xl:flex gap-x-8 items-center"
                             linkStyles="relative hover:text-primary transition-all"
                             underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
@@ -53,7 +56,9 @@ const Header: React.FC = () => {
                         <ThemeToggler />
                         {/* Mobile Navigation */}
                         <div className="xl:hidden mr-4">
-                            <MobileNav />
+                            <MobileNav
+                                links={isAdminRoute ? adminLinks : links}
+                            />
                         </div>
                     </div>
                 </div>

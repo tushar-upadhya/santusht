@@ -1,0 +1,105 @@
+"use client";
+
+import { Checkbox } from "@/components/ui/checkbox";
+import { ColumnDef } from "@tanstack/react-table";
+
+export type Employee = {
+    serialNumber: number;
+    refNo: string;
+    location: string;
+    description: string;
+    lastUpdate: string;
+};
+
+export const columns: ColumnDef<Employee>[] = [
+    {
+        accessorKey: "serialNumber",
+        header: () => <div className="text-left">S.No</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.index + 1}
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: "refNo",
+        header: () => <div className="text-left">RefNo</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.getValue("refNo")}
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: "location",
+        header: () => <div className="text-left">Location</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.getValue("location")}
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: "description",
+        header: () => <div className="text-left">Description</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.getValue("description")}
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: "lastUpdate",
+        header: () => <div className="text-left">Last Update</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.getValue("lastUpdate")}
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: "action",
+        header: () => <div className="text-left">Action</div>,
+        cell: ({ row }) => {
+            return (
+                <div className="text-left text-[min(4vw,1rem)] leading-relaxed truncate">
+                    {row.getValue("action")}
+                </div>
+            );
+        },
+    },
+    {
+        id: "select",
+        header: ({ table }) => (
+            <Checkbox
+                checked={
+                    table.getIsAllPageRowsSelected() ||
+                    (table.getIsSomePageRowsSelected() && "indeterminate")
+                }
+                onCheckedChange={(value) =>
+                    table.toggleAllPageRowsSelected(!!value)
+                }
+                aria-label="Select all"
+            />
+        ),
+        cell: ({ row }) => (
+            <Checkbox
+                checked={row.getIsSelected()}
+                onCheckedChange={(value) => row.toggleSelected(!!value)}
+                aria-label="Select row"
+            />
+        ),
+        enableSorting: false,
+        enableHiding: false,
+    },
+];

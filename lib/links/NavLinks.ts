@@ -5,3 +5,9 @@ export const links: NavLink[] = [
     { name: "Contact", path: "/contact" },
     { name: "Login", path: "/sign-in" },
 ];
+
+export const adminLinks: NavLink[] = [
+    { name: "Admin", path: "/admin" },
+    { name: "User Management", path: "/admin/user-management" },
+    { name: "Logout", path: "/sign-out" },
+];

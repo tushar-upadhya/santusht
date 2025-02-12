@@ -1,14 +1,16 @@
-import { links } from "@/lib/linlks/NavLinks";
+import { NavLink } from "@/lib/types/navtype";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface NavProps {
+    links: NavLink[];
     containerStyles?: string;
     linkStyles?: string;
     underlineStyles?: string;
 }
 
 const Nav = ({
+    links,
     containerStyles = "",
     linkStyles = "",
     underlineStyles = "",

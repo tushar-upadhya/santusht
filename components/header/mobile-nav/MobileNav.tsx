@@ -1,10 +1,15 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { adminLinks, links } from "@/lib/links/NavLinks";
 import { AlignJustify } from "lucide-react";
+import { usePathname } from "next/navigation";
 import React from "react";
 import Logo from "../logo/Logo";
 import Nav from "../nav/Nav";
 
 const MobileNav: React.FC = () => {
+    const pathname = usePathname();
+
+    const isAdminRoute = pathname.startsWith("/admin");
     return (
         <div className="mx-auto container">
             <Sheet>
@@ -18,6 +23,7 @@ const MobileNav: React.FC = () => {
                             <Logo />
 
                             <Nav
+                                links={isAdminRoute ? adminLinks : links}
                                 containerStyles="flex flex-col items-center gap-y-6"
                                 linkStyles="text-2xl"
                             />

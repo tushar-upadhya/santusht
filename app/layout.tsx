@@ -1,9 +1,10 @@
 import Header from "@/components/header/Header";
+
 import { ThemeProvider } from "@/components/theme/theme-trovider/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "../app/globals.css";
 
 const roboto = Roboto({
     weight: "400",
@@ -18,15 +19,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
+}) {
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="icon" href="/favicon.ico" />
             </head>
-
             <body className={roboto.className}>
                 <ThemeProvider
                     attribute="class"

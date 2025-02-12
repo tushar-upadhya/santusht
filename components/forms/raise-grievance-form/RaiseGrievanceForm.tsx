@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -47,6 +48,38 @@ const RaiseGrievanceForm = () => {
             otp: "",
         },
     });
+    const [mediaType, setMediaType] = useState<string | null>(null);
+    const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const handleMediaChange = async (value: string) => {
+        setMediaType(value);
+
+        if (mediaStream) {
+            mediaStream.getTracks().forEach((track) => track.stop());
+            setMediaStream(null);
+        }
+
+        try {
+            if (value === "audio") {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    audio: true,
+                });
+                setMediaStream(stream);
+            } else if (value === "video") {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: true,
+                });
+                setMediaStream(stream);
+                if (videoRef.current) {
+                    videoRef.current.srcObject = stream;
+                }
+            }
+        } catch (error) {
+            console.error(`Error accessing ${value}:`, error);
+        }
+    };
 
     const onSubmit = (data: unknown): void => {
         console.log(data);
@@ -55,37 +88,71 @@ const RaiseGrievanceForm = () => {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Institute Dropdown */}
-                <FormField
-                    control={form.control}
-                    name="institute"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Institute</FormLabel>
-                            <FormControl>
-                                <Select {...field}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select Institute" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="institute1">
-                                            Institute 1
-                                        </SelectItem>
-                                        <SelectItem value="institute2">
-                                            Institute 2
-                                        </SelectItem>
-                                        <SelectItem value="institute3">
-                                            Institute 3
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                {/* Institute & Category Dropdown */}
+                <div className="flex gap-4">
+                    <FormField
+                        control={form.control}
+                        name="institute"
+                        render={({ field }) => (
+                            <FormItem className="flex-1">
+                                <FormLabel>Institute</FormLabel>
+                                <FormControl>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Select Institute" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="institute1">
+                                                Institute 1
+                                            </SelectItem>
+                                            <SelectItem value="institute2">
+                                                Institute 2
+                                            </SelectItem>
+                                            <SelectItem value="institute3">
+                                                Institute 3
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
-                {/* Building and Floor Fields (Horizontally Aligned) */}
+                    {/* Category  */}
+                    <FormField
+                        control={form.control}
+                        name="category"
+                        render={({ field }) => (
+                            <FormItem className="flex-1">
+                                <FormLabel>Category</FormLabel>
+                                <FormControl>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Select Category" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="category1">
+                                                Category 1
+                                            </SelectItem>
+                                            <SelectItem value="category2">
+                                                Category 2
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                {/* Building and Floor  */}
                 <div className="flex gap-4">
                     {/* Building Dropdown */}
                     <FormField
@@ -95,7 +162,10 @@ const RaiseGrievanceForm = () => {
                             <FormItem className="flex-1">
                                 <FormLabel>Building</FormLabel>
                                 <FormControl>
-                                    <Select {...field}>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
                                         <SelectTrigger>
                                             <SelectValue placeholder="Select Building" />
                                         </SelectTrigger>
@@ -122,7 +192,10 @@ const RaiseGrievanceForm = () => {
                             <FormItem className="flex-1">
                                 <FormLabel>Floor</FormLabel>
                                 <FormControl>
-                                    <Select {...field}>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
                                         <SelectTrigger>
                                             <SelectValue placeholder="Select Floor" />
                                         </SelectTrigger>
@@ -154,33 +227,6 @@ const RaiseGrievanceForm = () => {
                                     placeholder="Enter Landmark"
                                     {...field}
                                 />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-
-                {/* Category Dropdown */}
-                <FormField
-                    control={form.control}
-                    name="category"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Category</FormLabel>
-                            <FormControl>
-                                <Select {...field}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select Category" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="category1">
-                                            Category 1
-                                        </SelectItem>
-                                        <SelectItem value="category2">
-                                            Category 2
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -225,32 +271,109 @@ const RaiseGrievanceForm = () => {
                         )}
                     />
 
-                    {/* OTP Input */}
+                    {/* OTP and Get OTP Button */}
+                    <div className="flex-1 flex items-end gap-2">
+                        <FormField
+                            control={form.control}
+                            name="otp"
+                            render={({ field }) => (
+                                <FormItem className="flex-1">
+                                    <FormLabel>OTP</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Enter OTP"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <Button variant="destructive">Get OTP</Button>
+                    </div>
+                </div>
+
+                {/* MEDIA  */}
+
+                <div className="flex gap-4">
                     <FormField
                         control={form.control}
-                        name="otp"
+                        name="mediaType"
                         render={({ field }) => (
-                            <FormItem className="flex-1 mt-8">
+                            <FormItem className="flex-1">
+                                <FormLabel>Media</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Enter OTP" {...field} />
+                                    <Select
+                                        onValueChange={(value) => {
+                                            field.onChange(value);
+                                            handleMediaChange(value);
+                                        }}
+                                        value={mediaType || ""}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Select Media Type" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="image">
+                                                Image
+                                            </SelectItem>
+                                            <SelectItem value="audio">
+                                                Audio
+                                            </SelectItem>
+                                            <SelectItem value="video">
+                                                Video
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
 
-                    {/* Get OTP Button */}
-                    <Button variant={"destructive"} className="self-end">
-                        Get OTP
-                    </Button>
+                    {/* Media Display */}
+                    <div className="flex-1">
+                        {mediaType === "image" && (
+                            <div className="flex-1 mt-8">
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    ref={fileInputRef}
+                                    className="hidden"
+                                />
+                                <Button
+                                    onClick={() =>
+                                        fileInputRef.current?.click()
+                                    }
+                                    variant="outline"
+                                >
+                                    Upload Image
+                                </Button>
+                            </div>
+                        )}
+
+                        {mediaType === "audio" && (
+                            <div className="flex-1 mt-8">
+                                <p>Microphone is enabled...</p>
+                            </div>
+                        )}
+
+                        {mediaType === "video" && (
+                            <div className="flex ">
+                                <video
+                                    ref={videoRef}
+                                    autoPlay
+                                    className="w-full h-auto rounded-md"
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Submit Button */}
-                <div className="justify-center max-w-full">
-                    <Button type="submit" variant="default" className="w-full">
-                        Submit
-                    </Button>
-                </div>
+                <Button type="submit" variant="default" className="w-full">
+                    Submit
+                </Button>
             </form>
         </Form>
     );
