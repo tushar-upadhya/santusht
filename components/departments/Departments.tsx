@@ -1,4 +1,5 @@
 import i1 from "@/public/illustration-light.svg";
+import Image from "next/image";
 import { StickyScroll } from "../ui/sticky-scroll-reveal";
 
 const departments = [
@@ -47,10 +48,11 @@ export const Departments: React.FC = () => {
                             description: dept.content,
                             content: (
                                 <div className="space-y-1 ">
-                                    <img
+                                    <Image
                                         src={dept.image.src}
                                         alt={dept.department}
                                         className="w-full h-auto rounded-md"
+                                        fill
                                     />
 
                                     <p className="text-slate-800 dark:text-gray-300 text:sm font-semibold">
