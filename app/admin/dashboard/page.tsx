@@ -1,13 +1,13 @@
 "use client";
 
+import { columns, Employee } from "@/components/admin/table/columns";
+import { DataTable } from "@/components/admin/table/data-table";
 import DialogForm from "@/components/forms/dialog-form/DialogForm";
 import RaiseGrievanceForm from "@/components/forms/raise-grievance-form/RaiseGrievanceForm";
 import Logo from "@/components/header/logo/Logo";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
-import { columns, Employee } from "../_components/table/columns";
-import { DataTable } from "../_components/table/data-table";
 
 async function getData(): Promise<Employee[]> {
     const data = [
@@ -27,7 +27,7 @@ async function getData(): Promise<Employee[]> {
 
     return data.map((item, index) => ({
         ...item,
-        serialNumber: index + 1, // Auto-increment serial number
+        serialNumber: index + 1,
     }));
 }
 
@@ -61,7 +61,7 @@ async function closeTab(): Promise<Employee[]> {
     }));
 }
 
-const AdminPage = () => {
+const DashboardPage = () => {
     const [tabData, setTabData] = useState<Employee[]>([]);
     const [activeTab, setActiveTab] = useState<string>("new");
     const [newCount, setNewCount] = useState<number>(0);
@@ -157,4 +157,4 @@ const AdminPage = () => {
     );
 };
 
-export default AdminPage;
+export default DashboardPage;

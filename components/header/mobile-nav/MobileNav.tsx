@@ -25,7 +25,7 @@ const MobileNav: React.FC = () => {
                             <Nav
                                 links={isAdminRoute ? adminLinks : links}
                                 containerStyles="flex flex-col items-center gap-y-6"
-                                linkStyles="text-2xl"
+                                linkStyles="text-[min(4.5vw,1rem)] leading-normal"
                             />
                         </div>
                     </div>

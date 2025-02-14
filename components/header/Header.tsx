@@ -1,6 +1,7 @@
 "use client";
 
-import { adminLinks, links } from "@/lib/links/NavLinks";
+import Breadcrumbs from "@/components/bread-crumbs/Breadcrumbs";
+import { adminLinks, userLinks } from "@/lib/links/NavLinks";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "../theme/theme-toggler/ThemeToggler";
@@ -24,6 +25,7 @@ const Header: React.FC = () => {
         };
     }, []);
 
+    // Check if the current route is an admin route
     const isAdminRoute = pathname.startsWith("/admin");
 
     return (
@@ -46,22 +48,27 @@ const Header: React.FC = () => {
                         description="All India Institute Of Medical Sciences, Ansari Nagar New Delhi"
                     />
                     <div className="flex items-center gap-x-3">
-                        {/* Conditional Navigation */}
+                        {/* ✅ Admin and User Navigation Toggle */}
                         <Nav
-                            links={isAdminRoute ? adminLinks : links}
+                            links={isAdminRoute ? adminLinks : userLinks} // Dynamically switch links
                             containerStyles="hidden xl:flex gap-x-8 items-center"
                             linkStyles="relative hover:text-primary transition-all"
                             underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
                         />
                         <ThemeToggler />
-                        {/* Mobile Navigation */}
+                        {/* ✅ Mobile Navigation */}
                         <div className="xl:hidden mr-4">
                             <MobileNav
-                                links={isAdminRoute ? adminLinks : links}
+                                links={isAdminRoute ? adminLinks : userLinks}
                             />
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* ✅ Breadcrumbs - Add this below the header */}
+            <div className="mt-4">
+                <Breadcrumbs /> {/* Breadcrumb component here */}
             </div>
         </header>
     );

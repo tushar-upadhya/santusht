@@ -19,9 +19,7 @@ const HomePage: React.FC = () => {
             <Cards />
             <Services />
             <Departments />
-
             <Gallery />
-
             <Faq />
         </div>
     );
