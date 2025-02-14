@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import Image from "next/image";
 import React from "react";
-
 const ContactPage: React.FC = () => {
     const handleCopy = (phoneNumber: string) => {
         navigator.clipboard.writeText(phoneNumber);
@@ -29,12 +28,12 @@ const ContactPage: React.FC = () => {
                         {/* Image */}
                         <div className="w-full h-[200px] sm:h-[300px] bg-cover bg-center mb-6">
                             <Image
-                                src="/assets/auth.png"
+                                src={""}
                                 alt="Auth Image"
                                 width={342}
                                 height={342}
                                 layout="intrinsic"
-                                className="transition-all hover:rotate-2 hover:scale-105"
+                                className="transition-all dark:bg-contact_illustration_dark.svg hover:rotate-2 hover:scale-105"
                             />
                         </div>
                         {/* Text */}

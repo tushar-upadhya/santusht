@@ -12,5 +12,5 @@ export const adminLinks: NavLink[] = [
     { name: "User Management", path: "/admin/user-management" },
     { name: "QR Codes", path: "/admin/qr" },
     { name: "Reports", path: "/admin/reports" },
-    { name: "Logout", path: "/sign-out" },
+    { name: "Logout", path: "/sign-in" },
 ];

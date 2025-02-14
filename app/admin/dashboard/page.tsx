@@ -10,20 +10,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 
 async function getData(): Promise<Employee[]> {
-    const data = [
-        {
-            refNo: "EMP001",
-            location: "New York",
-            description: "Software Engineer",
-            lastUpdate: "2025-01-25",
-        },
-        {
-            refNo: "EMP002",
-            location: "San Francisco",
-            description: "Product Manager",
-            lastUpdate: "2025-02-10",
-        },
-    ];
+    const data = Array(5).fill({
+        refNo: "EMP003",
+        location: "New York",
+        description: "Delhi",
+        lastUpdate: "2024-11-15",
+    });
 
     return data.map((item, index) => ({
         ...item,
@@ -32,15 +24,12 @@ async function getData(): Promise<Employee[]> {
 }
 
 async function active(): Promise<Employee[]> {
-    const data = [
-        {
-            refNo: "EMP002",
-            location: "San Francisco",
-            description: "Product Manager",
-            lastUpdate: "2025-02-10",
-        },
-    ];
-
+    const data = Array(50).fill({
+        refNo: "EMP003",
+        location: "New York",
+        description: "UX ",
+        lastUpdate: "2024-11-15",
+    });
     return data.map((item, index) => ({
         ...item,
         serialNumber: index + 1,
@@ -98,7 +87,7 @@ const DashboardPage = () => {
     };
 
     return (
-        <div className="px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+        <div className="px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 container mx-auto">
             <Tabs value={activeTab} onValueChange={handleTabChange}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <TabsList className="flex flex-wrap gap-2 mb-4 sm:mb-0 sm:flex-row sm:gap-4">

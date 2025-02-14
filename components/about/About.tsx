@@ -1,6 +1,6 @@
+import Image from "next/image";
 import React from "react";
 import { Separator } from "../ui/separator";
-
 const About: React.FC = () => {
     return (
         <section className="py-12">
@@ -21,11 +21,11 @@ const About: React.FC = () => {
                 <div className="flex flex-col md:flex-row items-center gap-8">
                     {/* Image on the Left */}
                     <div className="w-full md:w-1/2">
-                        {/* <Image
-                        src=""
-                        alt="About Santusht"
-                        className="w-full h-auto rounded-lg"
-                    /> */}
+                        <Image
+                            src={""}
+                            alt="About Santusht"
+                            className="w-full rounded-lg"
+                        />
                     </div>
 
                     <div className="w-full md:w-1/2 space-y-4">
