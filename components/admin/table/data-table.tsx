@@ -107,17 +107,14 @@ export function DataTable<TData, TValue>({
                     </DropdownMenuContent>
                 </DropdownMenu> */}
             </div>
-            <div className="rounded-md border">
+            <div className="container mx-auto truncate p-4">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead
-                                            key={header.id}
-                                            className="truncate"
-                                        >
+                                        <TableHead key={header.id} className="">
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
