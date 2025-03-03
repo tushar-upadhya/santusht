@@ -5,7 +5,7 @@ import { DataTable } from "@/components/admin/table/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { QRType } from "@/lib/types/qrType"; // Import QRType
+import { QRType } from "@/lib/types/qrType";
 import { useEffect, useState } from "react";
 
 async function fetchData(type: string): Promise<QRType[]> {
@@ -29,7 +29,7 @@ async function fetchData(type: string): Promise<QRType[]> {
 }
 
 const ContactRequestPage = () => {
-    const [tabData, setTabData] = useState<QRType[]>([]); // Use QRType instead of Employee
+    const [tabData, setTabData] = useState<QRType[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [activeTab, setActiveTab] = useState<string>("new");
     const [counts, setCounts] = useState({
