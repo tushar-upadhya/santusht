@@ -6,4 +6,5 @@ export type QRType = {
     location: string;
     description: string;
     lastUpdate: string;
+    remarks?: string;
 };
